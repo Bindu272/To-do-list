@@ -1,0 +1,33 @@
+<!-- views/index.ejs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Todo List</title>
+  <link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body>
+  
+ <div class="card">
+  <p><%= kindOfDay ? kindOfDay : '' %></p>
+  <h1>Todo List</h1>
+ 
+  <form action="/add" method="post">
+    <input type="text" name="newTodo" placeholder="Add a new todo" required>
+    <button type="submit">Add</button>
+  </form>
+  <ul>
+    <% todos.forEach(todo => { %>
+      <li>
+          <input type="checkbox" name="todoItem" id="<%= todo %>" value="<%= todo %>">
+        <label for="<%= todo %>" class="todo-label"><%= todo %></label>
+
+      </li>
+    <% }); %>
+  </ul>
+</div>
+   
+</body>
+</html>
